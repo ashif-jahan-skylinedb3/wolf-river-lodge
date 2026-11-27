@@ -246,7 +246,7 @@ function Hero() {
 
       <div className="hero-image">
         <img
-          src="public/images/WhatsApp Image 2026-11-27 at 8.06.32 PM.jpeg"
+          src="images/WhatsApp Image 2026-11-27 at 8.06.32 PM.jpeg"
           alt="Architectural rendering of Wolf River Lodge"
         />
       </div>
