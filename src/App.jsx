@@ -122,7 +122,7 @@ const architecturalConcepts = [
     label: "Wedding Venue",
     eyebrow: "The Wedding Experience",
     title: "Where forever begins.",
-    image: "/images/Wolf River Lodge Wedding Floor Plan.png",
+    image: "/images/wedding-venue.png",
     alt: "Hand-rendered architectural watercolor floor plan of the Wolf River Lodge wedding venue",
     description:
       "Envisioned as an extraordinary setting for life's most meaningful celebrations, the Great Hall brings together timeless timber craftsmanship, natural stone and the warmth of Southern hospitality.",
@@ -137,7 +137,7 @@ const architecturalConcepts = [
     label: "Residential — Unit A",
     eyebrow: "The Residential Experience",
     title: "A place to call your own.",
-    image: "/images/venue-a.png",
+    image: "/images/unit-a.png",
     alt: "Architectural watercolor floor plans showing both versions of Unit A at Wolf River Lodge",
     description:
       "Thoughtfully envisioned private residences that balance the warmth of alpine architecture with contemporary living. Two distinct configurations offer flexibility, comfort and understated elegance.",
@@ -246,7 +246,7 @@ function Hero() {
 
       <div className="hero-image">
         <img
-          src="/images/WhatsApp Image 2026-11-27 at 8.06.32 PM.jpeg"
+          src="/images/hero-new.jpeg"
           alt="Architectural rendering of Wolf River Lodge"
         />
       </div>
