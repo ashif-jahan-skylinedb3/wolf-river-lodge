@@ -116,6 +116,39 @@ const specifications = [
   ["Amenities", "Full-service spa, heated infinity pool and valet transit"],
 ];
 
+const architecturalConcepts = [
+  {
+    id: "wedding",
+    label: "Wedding Venue",
+    eyebrow: "The Wedding Experience",
+    title: "Where forever begins.",
+    image: "public/images/Wolf River Lodge Wedding Floor Plan.png",
+    alt: "Hand-rendered architectural watercolor floor plan of the Wolf River Lodge wedding venue",
+    description:
+      "Envisioned as an extraordinary setting for life's most meaningful celebrations, the Great Hall brings together timeless timber craftsmanship, natural stone and the warmth of Southern hospitality.",
+    details: [
+      { value: "5,388", label: "Square Feet" },
+      { value: "Great Hall", label: "Reception Space" },
+      { value: "Terrace", label: "Outdoor Experience" },
+    ],
+  },
+  {
+    id: "unit-a",
+    label: "Residential — Unit A",
+    eyebrow: "The Residential Experience",
+    title: "A place to call your own.",
+    image: "public/images/venue-a.png",
+    alt: "Architectural watercolor floor plans showing both versions of Unit A at Wolf River Lodge",
+    description:
+      "Thoughtfully envisioned private residences that balance the warmth of alpine architecture with contemporary living. Two distinct configurations offer flexibility, comfort and understated elegance.",
+    details: [
+      { value: "892", label: "Version 1 · Sq. Ft." },
+      { value: "900", label: "Version 2 · Sq. Ft." },
+      { value: "1", label: "Bedroom" },
+    ],
+  },
+];
+
 function SectionHeading({ label, title, children }) {
   return (
     <div className="section-heading">
@@ -213,7 +246,7 @@ function Hero() {
 
       <div className="hero-image">
         <img
-          src="/images/hero.webp"
+          src="public/images/WhatsApp Image 2026-11-27 at 8.06.32 PM.jpeg"
           alt="Architectural rendering of Wolf River Lodge"
         />
       </div>
@@ -485,6 +518,96 @@ function Footer() {
   );
 }
 
+function ArchitecturalConcepts() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const active = architecturalConcepts[activeIndex];
+
+  return (
+    <section
+      className="section architectural-concepts"
+      id="architectural-concepts"
+    >
+      <SectionHeading
+        label="06.1 / Architectural Concepts"
+        title="A closer look at the vision."
+      >
+        Explore the spaces envisioned for Wolf River Lodge, where thoughtful
+        architecture meets timeless hospitality.
+      </SectionHeading>
+
+      <div
+        className="concept-tabs"
+        role="group"
+        aria-label="Architectural concepts"
+      >
+        {architecturalConcepts.map((concept, index) => (
+          <button
+            key={concept.id}
+            type="button"
+            className={`concept-tab ${activeIndex === index ? "active" : ""}`}
+            aria-pressed={activeIndex === index}
+            onClick={() => setActiveIndex(index)}
+          >
+            <span className="concept-tab-number">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            {concept.label}
+          </button>
+        ))}
+      </div>
+
+      <div className="concept-showcase" key={active.id}>
+        <figure className="concept-figure">
+          <div className="concept-artwork">
+            <img
+              src={active.image}
+              alt={active.alt}
+              loading="lazy"
+              width={1448}
+              height={1086}
+            />
+
+            <a
+              href={active.image}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="concept-expand"
+              aria-label={`View full ${active.label} illustration`}
+            >
+              View full plan <span>↗</span>
+            </a>
+          </div>
+
+          <figcaption>
+            Architectural concept illustration · Not to scale
+          </figcaption>
+        </figure>
+
+        <div className="concept-information">
+          <div className="concept-description">
+            <span className="eyebrow">{active.eyebrow}</span>
+
+            <h3>{active.title}</h3>
+
+            <p>{active.description}</p>
+          </div>
+
+          <div className="concept-specifications">
+            {active.details.map((detail) => (
+              <div className="concept-specification" key={detail.label}>
+                <strong>{detail.value}</strong>
+                <span>{detail.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -494,6 +617,7 @@ export default function App() {
         <Hero />
         <Vision />
         <Architecture />
+        <ArchitecturalConcepts />
         <Estate />
         <Experiences />
         <Dining />
